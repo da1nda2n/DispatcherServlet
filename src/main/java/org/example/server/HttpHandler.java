@@ -1,28 +1,44 @@
 package org.example.server;
 
-import java.util.function.Function;
+public class HttpHandler {
 
-public class HttpHandler implements Function<String, String> {
-
+    // POST
     public String handlePost(String message) {
-        return "201 Created: " + message;
+        return "Created: " + message;
     }
 
+    // GET
     public String handleGet(String message) {
-        return "200 OK: Sample Data";
+        return "Sample Data: " + message;
     }
 
+    // PUT
     public String handlePut(String message) {
-        return "200 OK: Updated Data - " + message;
+        return "Updated: " + message;
     }
 
+    // DELETE
     public String handleDelete(String message) {
-        return "200 OK: Deleted successfully";
+        return "Deleted: " + message;
     }
 
-    @Override
-    public String apply(String message) {
-        // 기본적으로 GET 요청을 처리
-        return handleGet(message);
+    //GET /user/{id}
+    public String handleGetUser(String message) {
+        return "User Information: " + message;
+    }
+
+    //POST /user
+    public String handlePostUser(String message) {
+        return "Created User: " + message;
+    }
+
+    //PUT /user/{id}
+    public String handlePutUser(String message) {
+        return "Updated User: " + message;
+    }
+
+    //DELETE /user/{id}
+    public String handleDeleteUser(String message) {
+        return "Deleted User: " + message;
     }
 }
